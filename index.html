@@ -10,14 +10,12 @@
   <meta name="theme-color" content="#3b2414">
   <link rel="icon" href="css/logo.png">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ar_SA">
   <meta property="og:title" content="شركة النور | نقل عفش بالرياض - نقل اثاث مكتبي - تخزين اثاث">
   <meta property="og:description" content="أفضل خدمات نقل العفش، نقل الأثاث المكتبي، وتخزين الأثاث بالرياض مع الفك والتركيب والتغليف الشامل وفك وتركيب المكيفات.">
   <meta property="og:image" content="css/service_moving.png">
 
-  <!-- Structured Data Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,7 +34,6 @@
   }
   </script>
 
-  <!-- Bootstrap 5 RTL & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,17 +54,28 @@
     }
     
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
     body {
       font-family: 'Cairo', 'Tajawal', sans-serif;
       background: var(--bg);
       color: var(--d);
       transition: background 0.8s ease;
       overflow-x: hidden;
+      overflow-x: clip;
+      width: 100%;
+      max-width: 100%;
       line-height: 1.7;
     }
+    img, svg, video, iframe { max-width: 100%; }
+    h1, h2, h3, h4, h5, p, li { overflow-wrap: break-word; }
     
-    section { padding: 90px 0; position: relative; }
+    section { padding: 90px 0; position: relative; overflow-x: hidden !important; }
     
     .dk {
       background: linear-gradient(135deg, #2b170a 0%, #4a2d18 100%);
@@ -97,7 +105,6 @@
       max-width: 720px;
     }
 
-    /* Navbar */
     .nv {
       position: fixed;
       inset: 0 0 auto;
@@ -181,22 +188,23 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.25);
     }
 
-    /* Side Drawer Menu */
     .dp {
       position: fixed;
       top: 0;
       right: 0;
       width: min(360px, 100%);
       height: 100vh;
+      height: 100dvh;
       z-index: 1060;
       background: linear-gradient(160deg, #381f0d, #683d1c);
       padding: 30px 24px;
-      transform: translateY(-110%);
-      transition: transform 0.65s cubic-bezier(0.7, 0, 0.2, 1);
-      box-shadow: -10px 20px 50px rgba(0,0,0,0.5);
+      transform: translateY(-120%);
+      transition: transform 0.65s cubic-bezier(0.7, 0, 0.2, 1), box-shadow 0.3s;
+      box-shadow: none;
       overflow-y: auto;
+      overscroll-behavior: contain;
     }
-    .dp.o { transform: none; }
+    .dp.o { transform: none; box-shadow: -10px 20px 50px rgba(0,0,0,0.5); }
     .dp .l {
       display: flex;
       align-items: center;
@@ -223,9 +231,9 @@
       float: left;
     }
 
-    /* Hero Section */
     #top {
       min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       align-items: center;
       color: #fff;
@@ -264,7 +272,6 @@
       transform: translateY(-2px);
     }
 
-    /* Running Ticker */
     .tk {
       background: linear-gradient(90deg, #d88224, var(--h), #d88224);
       color: var(--d);
@@ -281,7 +288,6 @@
     }
     @keyframes mq { to { transform: translateX(50%); } }
 
-    /* Cards */
     .cd {
       position: relative;
       overflow: hidden;
@@ -342,7 +348,6 @@
     }
     .dk .cd i { color: var(--h); }
 
-    /* Images with custom hover */
     .im {
       width: 100%;
       aspect-ratio: 4/3;
@@ -374,7 +379,6 @@
       font-size: 1.25rem;
     }
 
-    /* Services big cards */
     .sv-card {
       background: #fff;
       border-radius: 28px;
@@ -398,7 +402,6 @@
       line-height: 1;
     }
 
-    /* Works Grid & Zoom Lightbox */
     .g {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -456,7 +459,6 @@
     }
     .ar:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
 
-    /* Articles / Blog */
     .bl {
       background: #fff;
       border-radius: 24px;
@@ -487,7 +489,6 @@
       justify-content: space-between;
     }
 
-    /* Accordion FAQ */
     .accordion-item {
       border-radius: 16px !important;
       overflow: hidden;
@@ -507,7 +508,6 @@
     }
     .accordion-button:focus { box-shadow: none; border-color: var(--h); }
 
-    /* CTA Section */
     #cta {
       color: #fff;
       background: linear-gradient(135deg, rgba(43, 23, 10, 0.94) 0%, rgba(94, 54, 25, 0.88) 100%), url('css/service_storage.png') center/cover fixed;
@@ -515,7 +515,6 @@
       padding: 100px 0;
     }
 
-    /* Form */
     .fm {
       background: #fff;
       border-radius: 28px;
@@ -538,7 +537,6 @@
       box-shadow: 0 0 0 0.25rem rgba(229,152,40,0.25);
     }
 
-    /* Floating WhatsApp & Call Buttons */
     .fb {
       position: fixed;
       left: 20px;
@@ -570,7 +568,6 @@
       100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
     }
 
-    /* Footer */
     footer {
       background: #1f1107;
       color: #e8d6b8;
@@ -588,7 +585,6 @@
       text-decoration: underline;
     }
 
-    /* Scroll Animation Reveal */
     .rv {
       opacity: 0;
       transform: translateY(30px);
@@ -599,23 +595,112 @@
       transform: none;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1199.98px) {
+      h2.t { font-size: 2.1rem; }
+      .g { grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); }
+    }
+
+    @media (max-width: 991.98px) {
+      section { padding: 75px 0; }
+      #top, #cta { background-attachment: scroll; }
+      #top { padding-top: 110px; padding-bottom: 70px; }
+      .nv { padding: 10px 4%; }
+      .nv.s { padding: 8px 4%; }
+      .im { box-shadow: 10px 10px 0 var(--o); }
+      .sv-card { padding: 24px; }
+      .bl img { height: 200px; }
+    }
+
+    @media (max-width: 767.98px) {
       section { padding: 65px 0; }
       h2.t { font-size: 1.85rem; }
+      h2.t:after { width: 80px; height: 4px; }
+      .sub { font-size: 1rem; margin: 12px auto 32px; }
       #top .big { width: 120px; height: 120px; }
+      #top h1 { font-size: 2rem; }
       .st b { font-size: 2.4rem; }
+      .lg img { width: 52px; height: 52px; }
+      .lg-txt .brand-title { font-size: 1.2rem; }
+      .bw { padding: 10px 22px; }
+      .cd { padding: 22px 16px; border-radius: 18px; }
+      .sv-card { padding: 20px; border-radius: 22px; margin-bottom: 26px; }
+      .ck li { font-size: 1rem; }
+      .fm { padding: 26px 18px; border-radius: 22px; }
+      .accordion-button { font-size: 1rem; padding: 14px 16px; }
+      .form-control, .form-select { font-size: 16px; padding: 12px 14px; }
+      .g { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; gap: 12px; }
+      #cta { padding: 75px 0; }
+      #cta h2 { font-size: 1.9rem; }
+      #cta p { font-size: 1.05rem !important; }
+    }
+
+    @media (max-width: 575.98px) {
+      .row.g-5 { --bs-gutter-x: 1.5rem; }
+      .nv, .nv.s { padding-left: 3%; padding-right: 3%; }
+      .lg { gap: 8px; min-width: 0; }
+      .lg img { width: 46px; height: 46px; padding: 3px; box-shadow: 0 0 0 2px var(--h), 0 0 0 5px rgba(229,152,40,0.25), 0 6px 14px rgba(0,0,0,0.3); }
+      .lg-txt .brand-title { font-size: 1.05rem; }
+      .lg-txt .brand-sub { font-size: 0.66rem; }
+      #mo { padding: 9px 16px; font-size: 0.9rem; }
+      #top { padding-top: 100px; padding-bottom: 60px; }
+      #top .big { width: 105px; height: 105px; }
+      #top h1 { font-size: 1.7rem; }
+      #top p.fs-5 { font-size: 1rem !important; }
+      .chip { font-size: 0.85rem; padding: 6px 12px; margin: 3px; }
+      h2.t { font-size: 1.6rem; }
+      .st b { font-size: 2rem; }
+      .im { box-shadow: 8px 8px 0 var(--o); }
+      .g { grid-auto-rows: 150px; gap: 10px; }
+      .g a { border-radius: 14px; }
+      .bl img { height: 185px; }
+      .bl .bl-body { padding: 18px; }
+      #cta .bw { width: 100%; justify-content: center; font-size: 1rem !important; padding: 12px 18px !important; }
+      #cta h2 { font-size: 1.6rem; }
+      .fb { left: 12px; bottom: 16px; gap: 10px; }
+      .fb a { width: 52px; height: 52px; font-size: 1.6rem; }
+      .dp { width: 100%; padding: 24px 18px; }
+      footer { padding: 36px 0 90px; }
+    }
+
+    @media (max-width: 380px) {
+      .lg-txt .brand-sub { display: none; }
+      #mo { padding: 8px 12px; font-size: 0.85rem; }
+      h2.t { font-size: 1.45rem; }
+      #top h1 { font-size: 1.5rem; }
+      .sv-card { padding: 16px; }
+      .g { grid-auto-rows: 130px; }
+    }
+
+    @media (max-height: 500px) and (orientation: landscape) {
+      #top { min-height: auto; padding-top: 100px; padding-bottom: 50px; }
+      .dp { padding-top: 16px; }
+    }
+
+    @media (hover: none) {
+      .im:hover, .cd:hover, .sv-card:hover, .bl:hover, .bw:hover, .chip:hover,
+      .lg:hover img, .g a:hover img { transform: none; }
+      .g a:hover:after { opacity: 0; }
+    }
+
+    @media (min-width: 1600px) {
+      .container { max-width: 1400px; }
+      .g { grid-auto-rows: 230px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *:before, *:after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .rv { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Contact Buttons (WhatsApp & Call) -->
   <div class="fb">
     <a data-call style="background: linear-gradient(135deg, #7a4a24, #4a2d18)" aria-label="اتصال مباشر"><i class="bi bi-telephone-fill"></i></a>
     <a data-wa style="background: linear-gradient(135deg, #25d366, #128c7e)" aria-label="محادثة واتساب"><i class="bi bi-whatsapp"></i></a>
   </div>
 
-  <!-- Header & Navbar -->
   <header class="nv" id="nv">
     <a class="lg" href="#top" aria-label="الرئيسية">
       <img src="css/logo.png" alt="شعار شركة النور">
@@ -630,7 +715,6 @@
     </div>
   </header>
 
-  <!-- Side Drawer Menu Modal (ينزل من فوق الشاشة من الجنب) -->
   <aside class="dp" id="dp">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div class="d-flex align-items-center gap-2">
@@ -647,7 +731,6 @@
     </div>
   </aside>
 
-  <!-- 1. Hero Section -->
   <section id="top" data-bg="#fffaf2">
     <div class="container text-center">
       <img class="big mb-4" src="css/logo.png" alt="لوجو شركة النور بالرياض">
@@ -674,10 +757,8 @@
     </div>
   </section>
 
-  <!-- 2. Announcement Ticker -->
   <div class="tk"><div id="tk"></div></div>
 
-  <!-- 3. About Section -->
   <section id="about" data-bg="#f7ede2">
     <div class="container">
       <div class="row align-items-center g-5">
@@ -703,7 +784,6 @@
     </div>
   </section>
 
-  <!-- 4. Statistics Counter -->
   <section class="dk st" id="stats">
     <div class="container">
       <div class="row text-center g-4">
@@ -727,7 +807,6 @@
     </div>
   </section>
 
-  <!-- 5. Main Services (الخدمات مع صورها وعلامات الصح) -->
   <section id="services" data-bg="#f4e5d0">
     <div class="container">
       <h2 class="t">خدماتنا الشاملة والمتخصصة</h2>
@@ -736,7 +815,6 @@
     </div>
   </section>
 
-  <!-- 6. Special AC Section -->
   <section id="ac" data-bg="#fffaf2">
     <div class="container">
       <div class="row align-items-center g-5 flex-lg-row-reverse">
@@ -760,7 +838,6 @@
     </div>
   </section>
 
-  <!-- 7. Storage Dedicated Section (قسم التخزين) -->
   <section id="storage" class="dk">
     <div class="container">
       <div class="row align-items-center g-5">
@@ -784,7 +861,6 @@
     </div>
   </section>
 
-  <!-- 8. Cleaning & Parquet Section -->
   <section id="clean" data-bg="#f7ede2">
     <div class="container">
       <div class="row align-items-center g-5 flex-lg-row-reverse">
@@ -808,7 +884,6 @@
     </div>
   </section>
 
-  <!-- 9. Process Steps -->
   <section id="process" data-bg="#fffaf2">
     <div class="container">
       <h2 class="t">خطوات عمل احترافية ومضمونة</h2>
@@ -817,7 +892,6 @@
     </div>
   </section>
 
-  <!-- 10. Works Gallery (مع المودال للتكبير والتنقل بدون فلتر) -->
   <section id="works" data-bg="#f3dfc0">
     <div class="container">
       <h2 class="t">معرض سابقة أعمالنا في الرياض</h2>
@@ -826,7 +900,6 @@
     </div>
   </section>
 
-  <!-- 11. Why Choose Us -->
   <section class="dk" id="why">
     <div class="container">
       <h2 class="t">لماذا شركة النور هي اختيارك الأول بالرياض؟</h2>
@@ -835,7 +908,6 @@
     </div>
   </section>
 
-  <!-- 12. Quality Guarantee -->
   <section id="gu" data-bg="#fbeed6">
     <div class="container">
       <h2 class="t">ضمان حقيقي وراحة بال تامة</h2>
@@ -844,7 +916,6 @@
     </div>
   </section>
 
-  <!-- 13. Customer Testimonials -->
   <section id="rev" data-bg="#efd9b8">
     <div class="container">
       <h2 class="t">تجارب وآراء عملائنا الكرام</h2>
@@ -853,7 +924,6 @@
     </div>
   </section>
 
-  <!-- 14. Coverage Areas in Riyadh -->
   <section id="area" data-bg="#fffaf2">
     <div class="container">
       <h2 class="t">نغطي كافة أحياء وضواحي الرياض</h2>
@@ -862,7 +932,6 @@
     </div>
   </section>
 
-  <!-- 15. Blog & Tips Articles -->
   <section id="blog" data-bg="#f4e5d0">
     <div class="container">
       <h2 class="t">المقالات ودليل النقل الذكي</h2>
@@ -871,7 +940,6 @@
     </div>
   </section>
 
-  <!-- 16. FAQs -->
   <section id="faq" data-bg="#fbeed6">
     <div class="container" style="max-width:850px">
       <h2 class="t">الأسئلة الأكثر شيوعاً</h2>
@@ -880,7 +948,6 @@
     </div>
   </section>
 
-  <!-- 17. Master Tips Before Moving -->
   <section id="tips" data-bg="#f3dfc0">
     <div class="container">
       <h2 class="t">نصائح ذهبية قبل يوم النقل</h2>
@@ -889,7 +956,6 @@
     </div>
   </section>
 
-  <!-- 18. Call to Action Banner -->
   <section id="cta">
     <div class="container">
       <h2 style="font-weight:900" class="display-5 mb-3">جاهز لنقل أو تخزين عفشك بأمان تام؟</h2>
@@ -901,7 +967,6 @@
     </div>
   </section>
 
-  <!-- 19. Contact Form & Location Details -->
   <section id="contact" data-bg="#fffaf2">
     <div class="container">
       <h2 class="t">تواصل معنا - حجز واستفسار فوري</h2>
@@ -983,7 +1048,6 @@
     </div>
   </section>
 
-  <!-- 20. Footer (مع رابط المصمم Devora-Web وبدون أي سوشيال ميديا) -->
   <footer>
     <div class="container">
       <img src="css/logo.png" alt="لوجو شركة النور" width="75" class="mb-3" style="border-radius:50%;background:#f2e2c8;padding:4px">
@@ -1003,7 +1067,6 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal for Works Gallery -->
   <div class="modal fade" id="m" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" style="max-width:680px">
       <div class="modal-content" style="background:#2b170a;color:#fff3dc;border-radius:24px;overflow:hidden;border:2px solid var(--h)">
@@ -1013,16 +1076,13 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Configuration
     const WA = '966562632819', PH = '0562632819';
     const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
     const wl = t => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
 
-    // Set phone and WhatsApp links
     $$('[data-call]').forEach(a => { a.href = 'tel:+966562632819'; });
     $$('[data-ph]').forEach(e => { e.textContent = PH; });
     $$('[data-wa]').forEach(a => {
@@ -1030,7 +1090,6 @@
       a.target = '_blank';
     });
 
-    // Image fallback handling
     document.addEventListener('error', e => {
       if (e.target.tagName === 'IMG') {
         e.target.src = 'css/service_moving.png';
@@ -1039,7 +1098,6 @@
 
     const M = new bootstrap.Modal('#m');
 
-    // Navigation links in Drawer Menu
     const navItems = [
       ['top', 'الرئيسية', 'house-door-fill'],
       ['about', 'من نحن', 'info-circle-fill'],
@@ -1056,18 +1114,14 @@
     ];
     $('#lk').innerHTML = navItems.map(a => `<a class="l" href="#${a[0]}"><i class="bi bi-${a[2]}"></i> ${a[1]}</a>`).join('');
 
-    // Side Drawer Open / Close
     $('#mo').onclick = () => $('#dp').classList.add('o');
     $('#mc').onclick = () => $('#dp').classList.remove('o');
     $$('.dp .l').forEach(a => a.onclick = () => $('#dp').classList.remove('o'));
 
-    // Header scroll background toggle
     addEventListener('scroll', () => $('#nv').classList.toggle('s', scrollY > 60));
 
-    // Running Ticker Text
     $('#tk').innerHTML = ('نقل عفش بالرياض ✦ نقل أثاث مكتبي وشركات ✦ تخزين أثاث بمستودعات مؤمنة بالرياض ✦ فك وتركيب مكيفات سبليت وشباك ✦ فك وتركيب مطابخ ✦ فك وتركيب باركيه خشبي ✦ خدمة نظافة شاملة ✦ اتصل الآن: 0562632819 ✦ ').repeat(6);
 
-    // Dynamic Helper for card grids
     const cards = (id, arr, c = 'col-md-6 col-lg-4') => {
       $(id).innerHTML = arr.map(x => {
         const [i, t, d] = x.split('|');
@@ -1075,7 +1129,6 @@
       }).join('');
     };
 
-    // 5 Main Services with High Quality Images & Checks
     const S = [
       [
         'نقل عفش بالرياض',
@@ -1127,7 +1180,6 @@
       </div>
     `).join('');
 
-    // Process Steps
     cards('#ps', [
       'telephone-inbound|١. اتصال وحجز|تواصل معنا على 0562632819 لتحديد طلبك والموعد المناسب',
       'rulers|٢. معاينة مجانية|تحديد حجم العفش وعدد الفنيين ومواد التغليف المطلوبة',
@@ -1137,7 +1189,6 @@
       'patch-check|٦. تسليم ونظافة|فحص العفش معك والتأكد من رضاك الكامل 100%'
     ], 'col-6 col-lg-2');
 
-    // Why Choose Us
     cards('#wy', [
       'shield-check|أمان وضمان معتمد|نتحمل المسؤولية الكاملة ونسلمك كل قطعة سليمة تماماً',
       'clock-history|التزام صارم بالمواعيد|نصلك في الوقت المحدد وننهي أعمال النقل بدون تأخير',
@@ -1147,14 +1198,12 @@
       'stars|نظافة المكان بعد النقل|نترك منزلك الجديد مرتباً ونظيفاً وجاهزاً للعيش فوراً'
     ]);
 
-    // Guarantees
     cards('#gd', [
       'award|جودة تنفيذ فائقة|معايير قياسية في فك وتركيب وتغليف كافة المقتنيات الحساسة',
       'shield-lock-fill|تخزين مؤمن 24/7|مستودعات مرخصة ومراقبة ضد الحرائق والحشرات والرطوبة',
       'patch-check-fill|مطابقة تامة للمتطلبات|إعادة تركيب الأثاث والمكيفات تماماً كما ترغب'
     ]);
 
-    // Testimonials
     $('#rv').innerHTML = [
       ['أبو فهد التميمي (حي النرجس)', 'ما شاء الله تبارك الله، قمة في الانضباط والأمانة. نقلوا فيلا كاملة مع المكيفات والمطابخ في يوم واحد بدون أي خدش، وفريق العمل محترم جداً.'],
       ['المهندس سلطان القحطاني (حي الملقا)', 'تم نقل مقر شركتنا بالكامل بما فيه من مكاتب وسيرفرات وأجهزة. التزام بالميعاد وسرعة وتنظيم ممتاز. أنصح بالتعامل مع شركة النور.'],
@@ -1170,7 +1219,6 @@
       </div>
     `).join('');
 
-    // Coverage Areas in Riyadh
     cards('#ar', [
       'geo-alt-fill|شمال الرياض|الملقا، النرجس، الياسمين، العارض، الصحافة، حطين، الربيع',
       'geo-alt-fill|شرق الرياض|اليرموك، الرمال، الحمراء، قرطبة، الروابي، الخليج، المونسية',
@@ -1178,14 +1226,12 @@
       'geo-alt-fill|جنوب الرياض وضواحيها|العزيزية، الشفا، الحزم، الخرج وجميع المحافظات القريبة'
     ]);
 
-    // Master Tips Before Moving
     cards('#tp', [
       'archive-fill|فرز المحتويات الثمينة|احتفظ بالمجوهرات والأوراق الرسمية والعملات في حقيبة خاصة بك',
       'camera-fill|تصوير توصيلات الأجهزة|صوّر توصيلات التلفزيون والأسلاك لتسهيل إعادة تركيبها',
       'droplet-half|إذابة وتفريغ الثلاجة|افصل الثلاجة ونظفها قبل موعد النقل بـ 12 ساعة لتجنب الروائح'
     ]);
 
-    // Works Gallery - Populated with images from css folder (No Filter)
     const workImages = [
       { img: 'css/4.png', title: 'نقل عفش وتغليف فلل بالرياض' },
       { img: 'css/service_office.png', title: 'نقل أثاث مكتبي وشركات' },
@@ -1213,7 +1259,6 @@
       </a>
     `).join('');
 
-    // Lightbox Functionality
     let cur = 0;
     const show = i => {
       cur = (i + workImages.length) % workImages.length;
@@ -1232,7 +1277,6 @@
     function go(d) { show(cur + d); }
     $$('.g a').forEach(a => a.onclick = () => show(+a.dataset.i));
 
-    // Blog Articles
     const B = [
       [
         'css/4.png',
@@ -1271,7 +1315,6 @@
       </div>
     `).join('');
 
-    // FAQs Accordion
     $('#fq').innerHTML = [
       ['هل توفر شركة النور دينا نقل عفش مقفلة بالرياض؟', 'نعم بكل تأكيد، نمتلك أسطولاً من سيارات الدينا الكبيرة والمقفلة والمبطنة من الداخل لحماية الأثاث والزجاج من حرارة الشمس الشديدة وأتربة الطريق في الرياض.'],
       ['كيف تتم عملية تخزين الأثاث لديكم؟', 'نوفر مستودعات نموذجية معزولة ومكيفة جزئياً، نقوم بتغليف الأثاث بخامات خاصة للتخزين الطويل، وتوضع في غرف خاصة ومستقلة لكل عميل مع تسليم مفتاح وعقد ضمان رسمي.'],
@@ -1291,7 +1334,6 @@
       </div>
     `).join('');
 
-    // WhatsApp Form Submit Handler
     $('#f').onsubmit = e => {
       e.preventDefault();
       const f = e.target;
@@ -1303,7 +1345,6 @@
       window.open(wl(msg), '_blank');
     };
 
-    // Scroll Counter Animation
     const cn = e => {
       let n = +e.dataset.n, i = 0;
       const step = Math.max(1, Math.ceil(n / 60));
@@ -1314,7 +1355,6 @@
       }, 25);
     };
 
-    // Reveal on scroll observer
     const io = new IntersectionObserver(es => es.forEach(x => {
       if (x.isIntersecting && !x.target.classList.contains('in')) {
         x.target.classList.add('in');
@@ -1323,7 +1363,6 @@
     }), { threshold: 0.12 });
     $$('.rv, .st b[data-n]').forEach(e => io.observe(e));
 
-    // Dynamic background tone shift on scroll
     const bo = new IntersectionObserver(es => es.forEach(x => {
       if (x.isIntersecting && x.target.dataset.bg) {
         document.body.style.setProperty('--bg', x.target.dataset.bg);
@@ -1333,4 +1372,3 @@
   </script>
 </body>
 </html>
-
